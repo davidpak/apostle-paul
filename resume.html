@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Clean Blog - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Blog</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/resume-writing-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Writing a W Resume</h1>
+                            <h2 class="subheading">Master the art of resume writing to stand out in the tech world.</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">David Pak</a>
+                                on April 4, 2024
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">LeetCode Problem: Valid Anagram</h2>
+                        <p><strong>Problem statement: </strong>Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+                             An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
+                        <p><strong>Example 1:</strong></p>
+                        <pre><code>
+                Input: s = "anagram", t = "nagaram"
+                Output: true
+                        </code></pre>
+                        <p><strong>Example 2:</strong></p>
+                        <pre><code>
+                Input: s = "rat", t = "car"
+                Output: false
+                        </code></pre>
+                        <p><strong>Solution:</strong></p>
+                        <ol>
+                            <li>Create an unordered map that represents the frequencies of characters in both strings. It takes in a character as the key and an integer as the value. </li>
+                            <li>Iterate through each character c in s and for each character, increment its count in map.</li>
+                            <li>Iterate through each character x in t and for each character, decrement its count in map..</li>
+                            <li>Iterate through each value in map and check if any are non-zero.</li>
+                            <li>If any value is non-zero, return false. Otherwise, return true.</li>
+                        </ol>
+                        <p><strong>Code:</strong></p>
+                        <pre><code>
+            public boolean isAnagram(String s, String t) {
+                Map<Character, Integer> count = new HashMap<>();
+        
+                for (char x : s.toCharArray()) {
+                    count.put(x, count.getOrDefault(x, 0) + 1);
+                }
+        
+                for (char x : t.toCharArray()) {
+                    count.put(x, count.getOrDefault(x, 0) - 1);
+                }
+                
+                for (int val : count.values()) {
+                    if (val != 0) {
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+                        </code></pre>
+                        <h2 class="section-heading">How to Write a Winning Resume</h2>
+
+                        <!-- Resume examples -->
+                        <div class="resume-section">
+                            <p><strong>Resume Examples</strong></p>
+                            <p>For software engineer resume examples, visit <a href="https://www.beamjobs.com/resumes/software-engineer-resume-examples">BeamJobs</a>.</p>
+                        </div>
+
+                        <div class="resume-section">
+                            <p><strong>Resume Basics</strong></p>
+                            <p>The essential components of a resume include:</p>
+                            <ol>
+                                <li><strong>Contact Information:</strong> Include your name, address, phone number, and email.</li>
+                                <li><strong>Location:</strong> Specify your city and state.</li>
+                                <li><strong>Professional Summary:</strong> Provide a one-paragraph summary highlighting your current position, key achievements, skills, and experience. For guidance, refer to <a href="https://www.jobscan.co/blog/resume-summary/#:~:text=A%20resume%20summary%20highlights%20your,looking%20for%20in%20your%20career">Jobscan</a>.</li>
+                                <li><strong>Education:</strong> List your school name, degree, location, field of study, GPA, relevant coursework, and expected graduation date. Prioritize this section if you have limited work experience.</li>
+                                <li><strong>Experience:</strong> Detail relevant work experiences, including company name, dates of employment, key achievements, skills demonstrated, and technologies used. Employ action words to describe your contributions, quantify achievements where possible, speak in the present tense for current roles, and follow the format: "Performed A task using B tool(s) to accomplish C purpose/goal in D amount of time, resulting in E outcome." For example, "Collaborated with 3 teammates to develop a website using R and JavaScript in 2 months that geographically visualizes the number of endangered species in King County for a class project, achieving high marks and praise from the professor."</li>
+                                <li><strong>Skills:</strong>
+                                    <ul>
+                                        <li>Programming Languages: Python, Java, C/C++, JavaScript, Go, R.</li>
+                                        <li>Frameworks/Libraries: React, Node, AWS, NumPy, Pytorch, Flask, Django, Spark.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Projects:</strong> Include project names, dates, your role, a description, technologies used, and your specific contributions. Apply the same principles as the work experience section.</li>
+                                <li><strong>Extras:</strong> Add links to your GitHub, LinkedIn, portfolio website, and any relevant blogs.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Additional Resume Information Section -->
+                        <div class="resume-section">
+                            <p><strong>Additional Resume Information</strong></p>
+                            <ul>
+                                <li>Utilize <a href="https://careers.uw.edu/resources/resume-action-verbs/">action words</a> extensively to convey your accomplishments dynamically.</li>
+                                <li>Ensure your resume is free from typos; even a single mistake can be detrimental.</li>
+                                <li>Incorporate relevant keywords extensively, as many employers use automated systems for initial resume screenings. Use <a href="https://www.jobscan.co/#:~:text=The%20Jobscan%20resume%20scanner%20helps,resume%20for%20applicant%20tracking%20systems">Jobscan</a> to help tailor your resume.</li>
+                                <li>Avoid fabrications on your resume; authenticity is key, and discrepancies can lead to disqualification.</li>
+                                <li>Attend resume workshops and utilize available resources, such as the University of Washington's career services. Visit <a href="https://careers.uw.edu/channels/resumes/">UW Careers</a> for more information.</li>
+                            </ul>
+                        </div>
+                        
+                        
+                        <a href="#!"><img class="img-fluid" src="assets/img/resume-img.png" alt="..." /></a>
+                        <span class="caption text-muted">Boogers</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/uwaacf/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/groups/uwaacf">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/UW-AACF">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; AACF Tech 2024</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
