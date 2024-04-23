@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Careers in Tech</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Blog</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="project.html">Project</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/careers-bg.png')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Careers in Tech</h1>
+                            <h2 class="subheading">Unlock the power of connections for a thriving career in technology.</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">David Pak</a>
+                                on April 4, 2024
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">LeetCode Problem (~20 minutes): Longest Common Prefix</h2>
+                        <h3>Problem Statement:</h3>
+                        <p>Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string <code>""</code>.</p>
+
+                        <p><strong>Example 1:</strong></p>
+                        <pre><code>Input: strs = ["flower","flow","flight"]
+        Output: "fl"
+        </code></pre>
+                        <p><strong>Example 2:</strong></p>
+                        <pre><code>Input: strs = ["dog","racecar","car"]
+        Output: ""
+        Explanation: There is no common prefix among the input strings.
+        </code></pre>
+
+                        <h3>Solution</h3>
+                        <p>To solve this problem, we can use the horizontal scanning method. Start by assuming the entire first string from the array is the common prefix. Then compare this prefix with the prefixes of the next strings in the array, truncating the assumed prefix from the end one character at a time, until you find the common prefix for all strings or the prefix becomes empty.</p>
+                        <ol>
+                            <li>Initialize <code>prefix</code> to the first string in the array.</li>
+                            <li>Loop through the strings in the array.</li>
+                            <li>For each string, adjust <code>prefix</code> so that it represents the longest common prefix between <code>prefix</code> and the current string.</li>
+                            <li>If at any point <code>prefix</code> becomes an empty string, break out of the loop.</li>
+                            <li>Return <code>prefix</code>.</li>
+                        </ol>
+                        <p><strong>Code:</strong></p>
+                        <pre><code>class Solution {
+            public String longestCommonPrefix(String[] strs) {
+                if (strs.length == 0) return "";
+                String prefix = strs[0];
+                for (int i = 1; i < strs.length; i++) {
+                    while (strs[i].indexOf(prefix) != 0) {
+                        prefix = prefix.substring(0, prefix.length() - 1);
+                        if (prefix.isEmpty()) return "";
+                    }
+                }
+                return prefix;
+            }
+        }
+        </code></pre>
+                        <h2 class="section-heading">Intro to Tech Careers</h2>
+                        <p><strong>Overview: </strong>Many believe that earning a degree in computer science or a tech-related field channels one into a software engineering career. However, the realm of computer science extends far beyond, offering a multitude of potential career paths.</p>
+        
+                        <h2 class="section-heading">Software Development</h2>
+                        <strong>Related coursework</strong>
+                        <ul>
+                            <li>CSE 154: Web Programming</li>
+                            <li>CSE 331: Software Design & Implementation</li>
+                            <li>CSE 332: Data Structures & Parallelism</li>
+                            <li>CSE 403: Software Engineering</li>
+                        </ul>
+
+                        <h3>Common Careers in Software Development</h3>
+                        <h5>Front-end Development</h5>
+                        <p><strong>Description:</strong> Focuses on the client-side visual components of web applications.</p>
+                        <p><strong>Valuable Skills:</strong></p>
+                        <ul>
+                            <li>HTML, CSS, JavaScript for responsive designs.</li>
+                            <li>React, Angular, Vue.js for front-end development.</li>
+                            <li>UX/UI design principles.</li>
+                        </ul>
+                        
+                        <h5>Back-end Development</h5>
+                        <p><strong>Description:</strong> Works on server-side logic, databases, and integration.</p>
+                        <p><strong>Valuable Skills:</strong></p>
+                        <ul>
+                            <li>Server-side languages like Python, Ruby, Java, and PHP.</li>
+                            <li>Experience with frameworks like Django, Flask, Ruby on Rails, and ASP.NET Core.</li>
+                            <li>Database management with MySQL, PostgreSQL, MongoDB.</li>
+                        </ul>
+        
+                        <h5>Full-stack Development</h5>
+                        <p><strong>Description:</strong> Manages both front and back-end of web applications.</p>
+                        <p><strong>Valuable Skills:</strong></p>
+                        <ul>
+                            <li>Proficient in both client and server side development.</li>
+                            <li>Understanding of web technology stack such as HTTP, cookies, headers.</li>
+                        </ul>
+
+                        <h3>Specialized Skills Across Web Development</h3>
+                        <ul>
+                            <li><strong>JavaScript Libraries and Frameworks:</strong> In-depth knowledge of libraries like jQuery for simpler tasks, and frameworks like Node.js for server-side development.</li>
+                            <li><strong>Python Web Frameworks:</strong> Expertise in Django and Flask for rapid development of secure and maintainable web applications.</li>
+                            <li><strong><a href="http://asp.net/">ASP.NET</a> Core:</strong> Skills in developing applications using Microsoft's ASP.NET Core framework for high-performance, cross-platform web apps.</li>
+                            <li><strong>ExpressJS:</strong> Understanding of ExpressJS for building web applications and RESTful APIs quickly and easily with Node.js.</li>
+                            <li><strong>Ruby on Rails:</strong> Proficiency in Ruby on Rails for building database-backed web applications according to the Model-View-Controller (MVC) pattern.</li>
+                        </ul>
+                        <p>Each area of software development requires a combination of programming skills, knowledge of frameworks and libraries, and an understanding of software development best practices. While the fundamental skills such as proficiency in key programming languages (e.g., JavaScript, Python, Ruby) are critical across the board, specializing in a specific area often requires deep knowledge of specific tools and frameworks associated with that domain.</p>
+        
+                        <h4>QA Engineering</h4>
+                        <p><strong>Description:</strong> QA Engineers ensure software meets quality standards before release.</p>
+                        <p><strong>Valuable Skills:</strong></p>
+                        <ul>
+                            <li>Manual and automation testing.</li>
+                            <li>Tools like Selenium, TestComplete, QTP.</li>
+                            <li>CI/CD processes with Jenkins or GitLab CI.</li>
+                        </ul>
+        
+                        <h4>Database Administration</h4>
+                        <p><strong>Description:</strong> DBAs manage database performance, security, and integrity.</p>
+                        <p><strong>Valuable Skills:</strong></p>
+                        <ul>
+                            <li>SQL skills for database management.</li>
+                            <li>Oracle, SQL Server, NoSQL databases like MongoDB.</li>
+                            <li>Database security practices.</li>
+                        </ul>
+        
+                        <h4>UI/UX Design</h4>
+                        <p><strong>Description:</strong> UI/UX designers create intuitive and visually appealing digital products.</p>
+                        <p><strong>Valuable Skills:</strong></p>
+                        <ul>
+                            <li>Graphic design, visual communication, user-centered design principles.</li>
+                            <li>Tools like Adobe XD, Sketch, and Figma.</li>
+                        </ul>
+        
+                        <h4>Machine Learning and Data Analysis</h4>
+                        <p><strong>Description:</strong> Specialists analyze data and build intelligent systems to solve complex problems.</p>
+                        <p><strong>Valuable Skills:</strong></p>
+                        <ul>
+                            <li>Python, R, machine learning algorithms, data visualization tools like Tableau.</li>
+                        </ul>
+        
+                        <h4>Additional Tech Careers</h4>
+                        <p><strong>Areas:</strong> Security, Bioengineering, Chemical Engineering, Game Development.</p>
+                        <p><strong>Valuable Skills:</strong></p>
+                        <ul>
+                            <li>Specific skills related to each area, such as cybersecurity measures, biomedical device design, or C++ for game development.</li>
+                        </ul>
+                        
+                        <p>Each of these career paths offers unique challenges and requires a specialized set of skills, highlighting the versatility and breadth of opportunities available with a tech degree.</p>
+                    </div>
+                </div>
+            </div>
+        </article>        
+
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/uwaacf/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/groups/uwaacf">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/UW-AACF">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; AACF Tech 2024</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

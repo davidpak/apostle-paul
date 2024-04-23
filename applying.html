@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Applying</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Blog</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="project.html">Project</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/careers-bg.png')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Applying</h1>
+                            <h2 class="subheading">Navigate the application maze with confidence and strategy.</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">David Pak</a>
+                                on April 4, 2024
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">LeetCode Problem (~10 minutes): Unique Paths</h2>
+                        <h3>Problem Statement:</h3>
+                        <p>There is a robot on an <code>m x n</code> grid. The robot is initially located at the top-left corner (i.e., <code>grid[0][0]</code>). The robot tries to move to the bottom-right corner (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time. Given the two integers <code>m</code> and <code>n</code>, return the number of possible unique paths that the robot can take to reach the bottom-right corner. The test cases are generated so that the answer will be less than or equal to <code>2 * 10<sup>9</sup></code>.</p>
+                        <p><strong>Example 1:</strong></p>
+                        <img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" alt="Robot Maze Example" class="img-fluid">
+                        <pre><code>Input: m = 3, n = 7
+        Output: 28
+        </code></pre>
+                        <p><strong>Example 2:</strong></p>
+                        <pre><code>Input: m = 3, n = 2
+        Output: 3
+        Explanation: From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+        1. Right -> Down -> Down
+        2. Down -> Down -> Right
+        3. Down -> Right -> Down
+        </code></pre>
+                        <h3>Solution</h3>
+                        <p>Since the robot can only move down and to the right, the number of unique paths to tile <code>t</code> is the sum of the number of unique paths to the tile to the left <code>l</code> of <code>t</code> and the number of unique paths to the tile above <code>a</code> of <code>t</code>. This is given by the following recurrence relation:</p>
+                        <pre><code>dp(i, j) = dp(i - 1, j) + dp(i, j - 1)</code></pre>
+                        <ol>
+                            <li>Initialize a <code>m x n</code> 2D DP array <code>dp</code>, where <code>dp[i][j]</code> represents the unique number of paths to point <code>(i, j)</code>.</li>
+                            <li>Set <code>dp[0][0] = 1</code> since the number of unique paths to the starting position is 1.</li>
+                            <li>Iterate through every row <code>i</code> and column <code>j</code> in the grid and set <code>dp[i][j] = dp[i - 1][j] + dp[i][j - 1]</code>.</li>
+                            <li>Return <code>dp[m - 1][n - 1]</code>.</li>
+                        </ol>
+                        <p><strong>Code:</strong></p>
+                        <pre><code>class Solution {
+            public int uniquePaths(int m, int n) {
+                int[][] dp = new int[m][n];
+                dp[0][0] = 1;
+                for (int i = 0; i < m; i++) {
+                    for (int j = 0; j < n; j++) {
+                        if (i == 0 || j == 0) {
+                            dp[i][j] = 1;
+                        } else {
+                            dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+                        }
+                    }
+                }
+                return dp[m - 1][n - 1];
+            }
+        }
+        </code></pre>
+        
+                        <h2 class="section-heading">Applying to Internships for Computer Science Students</h2>
+                        <h3>When to Apply</h3>
+                        <p>For those eyeing summer internships, the application process usually kicks off the summer before. Here's a guide on when to apply:</p>
+                        <ul>
+                            <li><strong>Early Birds (July - September):</strong> Big tech companies start early.</li>
+                            <li><strong>Fall Recruiters (October - December):</strong> Many companies open applications in the fall.</li>
+                            <li><strong>Winter Window (January - March):</strong> Late planners and second-round openings.</li>
+                            <li><strong>Spring Stragglers (April - June):</strong> Few companies start their search in the spring.</li>
+                        </ul>
+        
+                        <h3>Best Application Practices</h3>
+                        <ol>
+                            <li><strong>Tailor Your Resume:</strong> Customize your resume for each application.</li>
+                            <li><strong>Track Your Applications:</strong> Use tools like <a href="https://huntr.co/product/job-tracker">Huntr</a> to keep track of applications.</li>
+                            <li><strong>Cover Letter:</strong> Tailor it to the company and position.</li>
+                            <li><strong>Practice Coding Interviews:</strong> Use platforms like LeetCode and HackerRank.</li>
+                            <li><strong>Research Companies:</strong> Understand each company's culture and projects.</li>
+                            <li><strong>Networking:</strong> Connect with current and former interns on LinkedIn.</li>
+                        </ol>
+        
+                        <h3>Great Resources for Applying</h3>
+                        <ul>
+                            <li><strong>GitHub Repositories:</strong> Repositories dedicated to internship applications.</li>
+                            <li><strong>Handshake, Glassdoor, LinkedIn:</strong> Central hubs for job openings and networking.</li>
+                            <li><strong>Internship Aggregators:</strong> Websites like <a href="http://internships.com/">Internships.com</a> and WayUp.</li>
+                        </ul>
+        
+                        <h3>Applying With a Referral</h3>
+                        <p>Getting referred by a current employee can significantly increase your chances of landing an interview. Here’s how to increase your chances of getting a referral:</p>
+                        <ol>
+                            <li>Network at industry meetups and career fairs.</li>
+                            <li>Utilize your university’s alumni networks.</li>
+                            <li>Reach out to professionals on LinkedIn with a thoughtful message.</li>
+                        </ol>
+        
+                        <h3>Career Fairs</h3>
+                        <p>Career fairs are opportunities to meet recruiters face-to-face. Prepare your pitch, research participating companies, bring copies of your resume, and follow up with a thank you email.</p>
+        
+                        <p>Starting early, staying organized, and leveraging resources can make the internship application process less daunting and more successful. Persistence and preparation are key.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+          
+
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/uwaacf/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/groups/uwaacf">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/UW-AACF">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; AACF Tech 2024</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
